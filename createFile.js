@@ -1,6 +1,6 @@
 //Create file
 //content of file should be current timestamp
-//filrname should be current date-time.txt
+//filename should be current date-time.txt
 
 //inbuilt package
 const fs = require("fs");
@@ -8,11 +8,12 @@ const fs = require("fs");
 const express = require("express");
 const path = require("path");
 
+
 const app= express();
 const PORT=9000;
 
 
-//everytime the file wil name current date-time.txt and content timestamp is created
+//everytime the file with name current date-time.txt and content timestamp is created
 app.get("/createFile",(request,response)=>{
     const currentdate = new Date(); 
         const datetime = (currentdate.getDate() + "-"
@@ -33,15 +34,13 @@ const timestamp = Date.now();
 
 });
 
-
+//list all files in directory
 app.get("/listFiles",(request,response)=>{
     fs.readdir("./backup",(err,data)=>{
         console.log(data,data.length);
         response.send(data)
     })
 });
-
-
 
 
 
